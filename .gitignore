@@ -1,0 +1,31 @@
+# IntelliJ project folder
+.idea
+
+# Other dev-env folders and files
+.vagrant
+Vagrantfile
+
+# setup.py-related folders and files
+build
+dist
+*.egg-info
+*.egg
+*.eggs
+
+# Compiled files
+*.pyc
+*.pyo
+
+# Logs
+*.log
+*.log.*
+
+# Tox testing
+.tox
+private/
+
+# Dynamically created doc folders
+doc/_build
+keys
+update
+static
