@@ -4,4 +4,4 @@ Jinja2==2.7.3
 oic==0.7.6
 yubico-client==1.9.1
 pyjwkest==1.0.1
-cffi=1.2.1
+cffi==1.2.1
