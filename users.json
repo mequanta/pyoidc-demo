@@ -38,5 +38,20 @@
     "family_name": "Crust",
     "email": "uc@example.com",
     "email_verified": true
+  },
+  "javagg": {
+    "sub": "javag0001",
+    "name": "ale xl",
+    "given_name": "Ale",
+    "family_name": "xl",
+    "email": "992@qq.com",
+    "email_verified": true,
+    "phone_number": "+86 13978625000",
+    "address": {
+      "street_address": "3cun",
+      "locality": "Xi'an",
+      "postal_code": "710003",
+      "country": "China"
+    }
   }
 }
