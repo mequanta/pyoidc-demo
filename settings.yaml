@@ -57,4 +57,4 @@ server:
     key: certs/localhost.key
     cert_chain:
     template_dirs:
-        - src/provider/authn/templates
+        - provider/authn/templates

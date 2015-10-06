@@ -133,9 +133,10 @@ def _webfinger(provider, request, **kwargs):
 
 
 def make_static_handler(static_dir):
+    mimetypes.add_type("application/json", ".json")
     def static(environ, start_response):
         path = environ['PATH_INFO']
-        full_path = os.path.join(static_dir, os.path.normpath(path).lstrip("/"))
+        full_path = os.path.join(static_dir, os.path.normpath(path).lstrip(os.sep))
 
         if os.path.exists(full_path):
             with open(full_path, 'rb') as f:
@@ -180,7 +181,7 @@ def main():
     provider.baseurl = issuer
     provider.symkey = rndstr(16)
 
-    path = os.path.join(os.path.dirname(__file__), "static")
+    path = os.path.join(os.path.dirname(os.path.realpath(__file__)), "static")
     try:
         os.makedirs(path)
     except OSError as e:
