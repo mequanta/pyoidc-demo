@@ -1,1 +1,1 @@
-web: python server.py -p $PORT -b http://localhost settings.yaml
+web: python server.py -p $PORT -b $BASE_URL settings.yaml
