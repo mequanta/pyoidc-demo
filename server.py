@@ -5,6 +5,7 @@ from functools import wraps, partial
 import json
 import mimetypes
 import os
+import logging
 from six.moves.urllib import parse as urlparse
 
 import cherrypy
@@ -155,12 +156,16 @@ def make_static_handler(static_dir):
 
 
 def main():
+
     parser = argparse.ArgumentParser()
     parser.add_argument("-p", "--port", default=80, type=int)
     parser.add_argument("-b", "--base", default="https://localhost", type=str)
     parser.add_argument("-d", "--debug", action="store_true")
     parser.add_argument("settings")
     args = parser.parse_args()
+
+    if args.debug:
+        logging.basicConfig(level=logging.DEBUG)
 
     with open(args.settings, "r") as f:
         settings = yaml.load(f)
@@ -175,7 +180,6 @@ def main():
     cls = make_cls_from_name(userinfo_conf["class"])
     i = cls(**userinfo_conf["kwargs"])
     userinfo = UserInfo(i)
-
     client_db = {}
     provider = Provider(issuer, SessionDB(issuer), client_db, authn_broker, userinfo, AuthzHandling(), verify_client, None)
     provider.baseurl = issuer
